@@ -1,5 +1,6 @@
 package edu.seu.yygh.cmn.controller;
 
+import com.netflix.client.http.HttpResponse;
 import edu.seu.model.cmn.Dict;
 import edu.seu.yygh.cmn.service.DictService;
 import edu.seu.yygh.common.result.Result;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -31,6 +33,10 @@ public class DictController {
         return Result.ok(dictService.getByParentId(id));
     }
 
-    //@ApiOperation("导出(下载)数据接口到excel")
-    //public Result<List<Dict>>
+    @ApiOperation("导出(下载)数据接口到excel")
+    @GetMapping("/export")
+    public Result<Object> exportExcel(HttpServletResponse response) {
+        dictService.exportExcel(response);
+        return Result.ok();
+    }
 }
