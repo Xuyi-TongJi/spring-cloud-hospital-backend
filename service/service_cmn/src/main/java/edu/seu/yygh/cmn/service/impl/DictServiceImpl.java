@@ -9,6 +9,7 @@ import edu.seu.yygh.cmn.listener.DictListener;
 import edu.seu.yygh.cmn.mapper.DictMapper;
 import edu.seu.yygh.cmn.service.DictService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +25,7 @@ import java.util.List;
 public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements DictService {
 
     @Override
+    @Cacheable(value = "dict", keyGenerator = "keyGenerator")
     public List<Dict> getByParentId(Long id) {
         QueryWrapper<Dict> wrapper = new QueryWrapper<Dict>().eq("parent_id", id);
         List<Dict> result = baseMapper.selectList(wrapper);
