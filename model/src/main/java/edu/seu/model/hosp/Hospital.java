@@ -21,13 +21,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Hospital extends BaseMongoEntity {
 	
 	private static final long serialVersionUID = 1L;
-	
+
+	/**
+	 * 唯一索引
+	 */
 	@ApiModelProperty(value = "医院编号")
-	@Indexed(unique = true) //唯一索引
+	@Indexed(unique = true)
 	private String hoscode;
 
+	/**
+	 * 普通索引
+	 */
 	@ApiModelProperty(value = "医院名称")
-	@Indexed //普通索引
+	@Indexed
 	private String hosname;
 
 	@ApiModelProperty(value = "医院类型")
@@ -57,7 +63,9 @@ public class Hospital extends BaseMongoEntity {
 	@ApiModelProperty(value = "状态 0：未上线 1：已上线")
 	private Integer status;
 
-	//预约规则
+	/**
+	 *	预约规则
+	 */
 	@ApiModelProperty(value = "预约规则")
 	private BookingRule bookingRule;
 

@@ -33,7 +33,7 @@
         <aliyun.version>4.3.3</aliyun.version>
         <oss.version>3.10.2</oss.version>
         <jodatime.version>2.10.1</jodatime.version>
-        <mongodb.version>2.7.0</mongodb.version>
+        <!-- <mongodb.version>2.7.0.RELEASE</mongodb.version> -->
     </properties>
 
     <!--配置dependencyManagement锁定依赖的版本-->
@@ -52,6 +52,11 @@
             <version>${alibaba.version}</version>
             <type>pom</type>
             <scope>import</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
         <!--mybatis-plus 持久层-->

@@ -13,4 +13,10 @@ import edu.seu.model.hosp.HospitalSet;
  */
 public interface HospitalSetService extends IService<HospitalSet> {
 
+    /**
+     * 根据hoscode查询signKey（密钥）
+     * @param hoscode hoscode
+     * @return signKey String
+     */
+    String querySignKeyByHoscode(String hoscode);
 }
