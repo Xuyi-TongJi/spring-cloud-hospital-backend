@@ -69,10 +69,10 @@ public class ApiServiceImpl implements ApiService {
         paramMap.put("hoscode",this.getHoscode());
         paramMap.put("timestamp", HttpRequestHelper.getTimestamp());
         paramMap.put("sign", MD5.encrypt(this.getSignKey()));
-        JSONObject respone = HttpRequestHelper.sendRequest(paramMap,this.getApiUrl()+"/api/hosp/hospital/show");
-        System.out.println(respone.toJSONString());
-        if(null != respone && 200 == respone.getIntValue("code")) {
-            JSONObject jsonObject = respone.getJSONObject("data");
+        JSONObject response = HttpRequestHelper.sendRequest(paramMap,this.getApiUrl()+"/api/hosp/hospital/show");
+        System.out.println(response.toJSONString());
+        if(null != response && 200 == response.getIntValue("code")) {
+            JSONObject jsonObject = response.getJSONObject("data");
             return jsonObject;
         }
         return null;

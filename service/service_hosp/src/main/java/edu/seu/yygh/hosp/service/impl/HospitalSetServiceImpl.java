@@ -1,11 +1,11 @@
 package edu.seu.yygh.hosp.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import edu.seu.model.hosp.Hospital;
 import edu.seu.model.hosp.HospitalSet;
 import edu.seu.yygh.hosp.mapper.HospitalSetMapper;
 import edu.seu.yygh.hosp.service.HospitalSetService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**

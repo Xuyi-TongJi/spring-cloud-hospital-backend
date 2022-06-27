@@ -38,4 +38,11 @@ public class HospitalServiceImpl implements HospitalService {
         hospital.setIsDeleted(0);
         hospitalRepository.save(hospital);
     }
+
+    @Override
+    public Hospital queryByHoscode(String hoscode) {
+        return hospitalRepository.getHospitalByHoscode(hoscode);
+    }
+
+
 }

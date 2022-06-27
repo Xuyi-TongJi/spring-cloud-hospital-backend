@@ -53,7 +53,7 @@ public class ApiController extends BaseController {
 	public String getHospital(ModelMap model,HttpServletRequest request,RedirectAttributes redirectAttributes) {
 		try {
 			HospitalSet hospitalSet = hospitalSetMapper.selectById(1);
-			if(null == hospitalSet || StringUtils.isEmpty(hospitalSet.getHoscode()) || StringUtils.isEmpty(hospitalSet.getSignKey())) {
+			if (null == hospitalSet || StringUtils.isEmpty(hospitalSet.getHoscode()) || StringUtils.isEmpty(hospitalSet.getSignKey())) {
 				this.failureMessage("先设置医院code与签名key", redirectAttributes);
 				return "redirect:/hospitalSet/index";
 			}
